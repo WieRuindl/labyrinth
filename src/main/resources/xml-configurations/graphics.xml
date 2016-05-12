@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+
+    <bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+        <property name="locations">
+            <list>
+                <value>classpath:properties/slick2DWindow.properties</value>
+                <value>classpath:properties/default-game-session.properties</value>
+            </list>
+        </property>
+    </bean>
+
+    <bean id="appGameContainer" class="org.newdawn.slick.AppGameContainer" scope="prototype">
+        <constructor-arg ref="menu"/>
+        <constructor-arg value="#{ ${cell.size} * ( 2 * ${labyrinth.width} + 1) }"/>
+        <constructor-arg value="#{ ${cell.size} * ( 2 * ${labyrinth.height} + 1) }"/>
+        <constructor-arg value="false"/>
+        <property name="targetFrameRate" value="${window.fps}"/>
+        <property name="showFPS" value="false"/>
+    </bean>
+
+</beans>
