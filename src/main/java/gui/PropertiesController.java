@@ -137,12 +137,15 @@ public class PropertiesController {
     public void setDataContainer(DataContainer data) {
         ObservableList<Hero> heroes = FXCollections.observableArrayList(data.getHeroes());
         heroesTable.setItems(heroes);
+        heroesTable.getSelectionModel().selectFirst();
 
         ObservableList<World> worlds = FXCollections.observableArrayList(data.getWorlds());
         worldsTable.setItems(worlds);
+        worldsTable.getSelectionModel().selectFirst();
 
         ObservableList<ShowMode> modes = FXCollections.observableArrayList(data.getShowModes());
         showModesTable.setItems(modes);
+        showModesTable.getSelectionModel().selectFirst();
     }
 
     @FXML

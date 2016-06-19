@@ -1,5 +1,6 @@
 package gui;
 
+import org.lwjgl.opengl.Display;
 import utils.*;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -38,6 +39,17 @@ public class MainWindowController {
         context = new ClassPathXmlApplicationContext("xml-configurations/main.xml");
 
         initScores();
+
+        updateGameSessionInfo();
+    }
+
+    private void updateGameSessionInfo() {
+        GameSession session = context.getBean(GameSession.class);
+
+        hero.setText(session.getHero().getClass().getSimpleName());
+        world.setText(session.getWorld().getClass().getSimpleName());
+        size.setText(""+session.getWidth()+"x"+session.getHeight());
+        mode.setText(session.getMode().getClass().getSimpleName());
     }
 
     private void initScores() {
@@ -78,6 +90,30 @@ public class MainWindowController {
             GameSession session = context.getBean(GameSession.class);
 
             saveScores(session);
+
+            Display.destroy();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    @FXML
+    private void showControlsWindow() {
+        try {
+            FXMLLoader loader = new FXMLLoader();
+
+            URL resource = getClass().getClassLoader().getResource("gui/views/controls.fxml");
+            loader.setLocation(resource);
+            AnchorPane page = loader.load();
+
+            Stage stage = new Stage();
+            stage.initModality(Modality.WINDOW_MODAL);
+
+            Scene scene = new Scene(page);
+            stage.setScene(scene);
+
+            stage.showAndWait();
+
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -114,7 +150,6 @@ public class MainWindowController {
         }
 
     }
-
 
     private void saveScoresToFile() {
         File scoresFile = new File("scores.xml");
@@ -154,6 +189,7 @@ public class MainWindowController {
             stage.showAndWait();
 
             setProps(controller);
+            updateGameSessionInfo();
         } catch (Exception e) {
             e.printStackTrace();
         }

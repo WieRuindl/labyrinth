@@ -1,20 +1,19 @@
 package gameManager;
 
-import labyrinth.Direction;
+import lombok.Getter;
 import org.newdawn.slick.Input;
 
 public enum Action {
-    MOVE_NORTH(Input.KEY_UP, Direction.NORTH),
-    MOVE_SOUTH(Input.KEY_DOWN, Direction.SOUTH),
-    MOVE_WEST(Input.KEY_LEFT, Direction.WEST),
-    MOVE_EAST(Input.KEY_RIGHT, Direction.EAST),
-    SPECIAL_ACTION(Input.KEY_C, null);
+    MOVE_NORTH(Input.KEY_DOWN),
+    MOVE_SOUTH(Input.KEY_UP),
+    MOVE_WEST(Input.KEY_LEFT),
+    MOVE_EAST(Input.KEY_RIGHT),
+    SPECIAL_ACTION(Input.KEY_C);
 
+    @Getter
     private final int key;
-    private final Direction direction;
 
-    Action(int key, Direction direction) {
+    Action(int key) {
         this.key = key;
-        this.direction = direction;
     }
 }

@@ -17,13 +17,9 @@ public class ScoreController {
     @Setter
     private Stage stage;
 
-    @Setter
-    private int score;
-
-
-    @FXML
-    private void initialize() {
-        scoreLabel.setText(score+" treasures");
+    public void setScore(int score) {
+        String text = score + ((score == 1) ? " treasure" : " treasures");
+        scoreLabel.setText(text);
     }
 
     @FXML

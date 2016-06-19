@@ -41,15 +41,15 @@ public class Game extends BasicGameState {
     }
 
     public void keyPressed(int key, char c) {
-        if (key == Input.KEY_LEFT) {
+        if (key == Action.MOVE_WEST.getKey()) {
             gameManager.movePlayer(Direction.WEST);
-        } else if (key == Input.KEY_RIGHT) {
+        } else if (key == Action.MOVE_EAST.getKey()) {
             gameManager.movePlayer(Direction.EAST);
-        } else if (key == Input.KEY_UP) {
+        } else if (key == Action.MOVE_SOUTH.getKey()) {
             gameManager.movePlayer(Direction.SOUTH);
-        } else if (key == Input.KEY_DOWN) {
+        } else if (key == Action.MOVE_NORTH.getKey()) {
             gameManager.movePlayer(Direction.NORTH);
-        } else if (key == Input.KEY_C) {
+        } else if (key == Action.SPECIAL_ACTION.getKey()) {
             gameManager.uniqueAction();
         } else if (key == Input.KEY_ESCAPE) {
             exitFlag = true;
