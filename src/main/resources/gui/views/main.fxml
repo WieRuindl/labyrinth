@@ -5,7 +5,7 @@
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="210.0" prefWidth="390.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.MainWindowController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="210.0" prefWidth="310.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.MainWindowController">
    <children>
       <SplitPane dividerPositions="0.45893719806763283" layoutX="204.0" layoutY="76.0" orientation="VERTICAL" prefHeight="400.0" prefWidth="600.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
         <items>
@@ -20,17 +20,12 @@
                         </ImageView>
                         <ImageView fitHeight="64.0" fitWidth="64.0" layoutX="78.0" layoutY="14.0" onMouseClicked="#showPropertiesWindow" pickOnBounds="true">
                            <image>
-                              <Image url="@../images/hero.png" />
+                              <Image url="@../images/properties.png" />
                            </image>
                         </ImageView>
                         <ImageView fitHeight="64.0" fitWidth="64.0" layoutX="142.0" layoutY="14.0" onMouseClicked="#showControlsWindow" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@../images/world.png" />
-                           </image>
-                        </ImageView>
-                        <ImageView fitHeight="64.0" fitWidth="64.0" layoutX="206.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@../images/mode.png" />
+                              <Image url="@../images/controls.png" />
                            </image>
                         </ImageView>
                         <ImageView fitHeight="64.0" fitWidth="64.0" layoutX="270.0" layoutY="14.0" onMouseClicked="#showHighScores" pickOnBounds="true">
